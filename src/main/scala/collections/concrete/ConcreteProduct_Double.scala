@@ -6,8 +6,6 @@ import scala.util.Random
 
 class ConcreteProduct_Double[Double] extends ConcreteProduct[Double] {
 
-  //type Type = Double
-
   def innerProduct(list1:Seq[Double], list2:Seq[Double], implementation:GenericProduct): Double =
   {
     val map:(Double,Double) => Double = (v1, v2) => (v1 * v2)

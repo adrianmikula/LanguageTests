@@ -1,18 +1,15 @@
 package collections
 
 import collections.concrete.{ConcreteProduct_Double, ConcreteProduct_Int}
-import collections.generic.{GenericProduct, GenericProduct_FoldLeft, GenericProduct_For}
+import collections.generic.{GenericProduct_FoldLeft, GenericProduct_For, GenericProduct_ForEach}
 
-import scala.util.Random
-
-
-
-object Tester
+object PerformanceTester
 {
 
   val generics = Map(
     "foldLeft" -> new GenericProduct_FoldLeft(),
-    "for" -> new GenericProduct_For()
+    "for" -> new GenericProduct_For(),
+    "forEach" -> new GenericProduct_ForEach()
   )
 
   val concretes = Map(
@@ -42,10 +39,7 @@ object Tester
           var list1 = concrete._2.getTestList(listSize)
           var list2 = concrete._2.getTestList(listSize)
 
-          // shuffle the lists
-          //list1 = scala.util.Random.shuffle(list1)
-          //list2 = scala.util.Random.shuffle(list2)
-
+          // print the amount of time taken to calculate this inner product
           timeTaken {concrete._2.innerProduct(list1, list2, generic._2)}
         }
       }
