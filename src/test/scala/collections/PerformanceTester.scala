@@ -6,17 +6,6 @@ import collections.generic.{GenericProduct_FoldLeft, GenericProduct_For, Generic
 object PerformanceTester
 {
 
-  val generics = Map(
-    "foldLeft" -> new GenericProduct_FoldLeft(),
-    "for" -> new GenericProduct_For(),
-    "forEach" -> new GenericProduct_ForEach()
-  )
-
-  val concretes = Map(
-    "double" -> new ConcreteProduct_Double(),
-    "int" -> new ConcreteProduct_Int()
-  )
-
   def main(args:Array[String]):Unit=
   {
     // first argument is the max list size to test
@@ -32,8 +21,8 @@ object PerformanceTester
     while (listSize <= maxListSize) {
 
       // test all combinations with this list size
-      for (concrete <- concretes) {
-        for (generic <- generics) {
+      for (concrete <- Implementations.concretes) {
+        for (generic <- Implementations.generics) {
 
           println("Testing " + generic._1 + " algorithm with " + concrete._1 + " type and list size of " + listSize)
           var list1 = concrete._2.getTestList(listSize)

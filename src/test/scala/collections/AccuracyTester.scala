@@ -6,25 +6,14 @@ import collections.generic.{GenericProduct_FoldLeft, GenericProduct_For, Generic
 object AccuracyTester
 {
 
-  val generics = Map(
-    "foldLeft" -> new GenericProduct_FoldLeft(),
-    "for" -> new GenericProduct_For(),
-    "forEach" -> new GenericProduct_ForEach()
-  )
-
-  val concretes = Map(
-    "double" -> new ConcreteProduct_Double(),
-    "int" -> new ConcreteProduct_Int()
-  )
-
   def main(args:Array[String]):Unit=
   {
     // test all combinations
-    for (concrete <- concretes) {
+    for (concrete <- Implementations.concretes) {
 
       // store all the results so we can check that they match
       var results = Vector()
-      for (generic <- generics) {
+      for (generic <- Implementations.generics) {
         println("Testing " + generic._1 + " algorithm with " + concrete._1 + " type")
 
         // calculate the inner product
