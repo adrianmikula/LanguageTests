@@ -6,12 +6,11 @@ import collections.generic.{GenericProduct_FoldLeft, GenericProduct_For, Generic
 object PerformanceTester
 {
 
+  // first argument is the max list size to test
+  // second argument is the size increment between each test
   def main(args:Array[String]):Unit=
   {
-    // first argument is the max list size to test
     val maxListSize = args(0).toInt
-
-    // second argument is the size increment between each test
     val amountToIncrement = args(1).toInt
 
     // calculate a new list size for this round

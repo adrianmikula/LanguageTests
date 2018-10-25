@@ -1,5 +1,5 @@
 package inheritance
 
-class MyClass extends MyAbstract with MyTrait[MyClass] {
+abstract class MyClass extends MyAbstract with MyTrait {
   def compare(that: MyClass) = 0
 }

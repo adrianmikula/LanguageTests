@@ -2,6 +2,8 @@ package collections.concrete
 
 import collections.generic.GenericProduct
 
+import scala.collection.immutable.Seq
+import scala.Double
 import scala.util.Random
 
 class ConcreteProduct_Double[Double] extends ConcreteProduct[Double] {
@@ -14,14 +16,16 @@ class ConcreteProduct_Double[Double] extends ConcreteProduct[Double] {
     implementation.innerProduct[Double](list1, list2, map, fold, 0.0)
   }
 
-  def getTestValue(): Double =
-  {
-    (Random.nextDouble())
-  }
+//  def getTestValue(): Double =
+//  {
+//    (Random.nextDouble())
+//  }
 
   def getTestList(size:Double): Seq[Double] =
   {
-    Seq.range(1.0, size)
+    //Seq.newBuilder[Double].range(1.0, size)
+
+     List(1.0, 2.0, 3.0, 4.0, 5.0)
   }
 
 }
